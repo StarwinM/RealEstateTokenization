@@ -1,5 +1,5 @@
-const ESTATE_TOKEN_ADDRESS = '';
-const PROPERTY_TOKEN_ADDRESS = '';
+const ESTATE_TOKEN_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+const PROPERTY_TOKEN_ADDRESS = '0xa16E02E87b7454126E5E10d957A927A7F5B5d2be';
 
 const ESTATE_TOKEN_ABI = [
     {
@@ -328,7 +328,6 @@ async function loadProperties() {
         console.error('Error loading properties:', error);
         document.getElementById('propertiesGrid').innerHTML = `
             <div class="empty-state">
-                <div class="empty-icon">🏢</div>
                 <h3 class="empty-title">No Properties Available</h3>
                 <p class="empty-text">Be the first to tokenize a property</p>
             </div>
@@ -368,7 +367,6 @@ function renderProperties() {
     if (properties.length === 0) {
         grid.innerHTML = `
             <div class="empty-state">
-                <div class="empty-icon">🏢</div>
                 <h3 class="empty-title">No Properties Available</h3>
                 <p class="empty-text">Check back soon for new investment opportunities</p>
             </div>
@@ -454,7 +452,6 @@ function renderPortfolio() {
     if (!account || properties.length === 0) {
         grid.innerHTML = `
             <div class="empty-state">
-                <div class="empty-icon">📊</div>
                 <h3 class="empty-title">No Investments Yet</h3>
                 <p class="empty-text">Start investing in tokenized real estate to build your portfolio</p>
             </div>
@@ -484,7 +481,6 @@ async function loadPortfolio(grid) {
         if (portfolioItems.length === 0) {
             grid.innerHTML = `
                 <div class="empty-state">
-                    <div class="empty-icon">📊</div>
                     <h3 class="empty-title">No Investments Yet</h3>
                     <p class="empty-text">Start investing in tokenized real estate to build your portfolio</p>
                 </div>
@@ -542,7 +538,6 @@ async function loadPortfolio(grid) {
         console.error('Error loading portfolio:', error);
         grid.innerHTML = `
             <div class="empty-state">
-                <div class="empty-icon">📊</div>
                 <h3 class="empty-title">Error Loading Portfolio</h3>
                 <p class="empty-text">${error.message}</p>
             </div>
