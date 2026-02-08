@@ -7,150 +7,157 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">Estate Token</div>
-            <div class="wallet-section">
-                <div class="network-badge" id="network">Disconnected</div>
-                <div class="wallet-address" id="walletAddress">No Wallet Connected</div>
-                <button class="connect-btn" id="connectBtn">Connect Wallet</button>
+<header>
+    <div class="header-content">
+        <div class="logo">Estate Token</div>
+        <div class="wallet-section">
+            <div class="network-badge" id="network">Disconnected</div>
+            <div class="wallet-address" id="walletAddress">No Wallet Connected</div>
+            <button class="connect-btn" id="connectBtn">Connect Wallet</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Fractional Real Estate Ownership</h1>
+        <p>Invest in premium properties through blockchain tokenization. Own a piece of real estate with as little as 0.01 ETH.</p>
+    </div>
+</section>
+
+<section class="stats-bar">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-label">Total Properties</div>
+            <div class="stat-value" id="totalProperties">0</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-label">Total Value Locked</div>
+            <div class="stat-value">
+                <span id="totalValue">0.00</span>
+                <span class="stat-unit">ETH</span>
             </div>
         </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Fractional Real Estate Ownership</h1>
-            <p>Invest in premium properties through blockchain tokenization. Own a piece of real estate with as little as 0.01 ETH.</p>
-        </div>
-    </section>
-
-    <section class="stats-bar">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-label">Total Properties</div>
-                <div class="stat-value" id="totalProperties">0</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-label">Total Value Locked</div>
-                <div class="stat-value">
-                    <span id="totalValue">0.00</span>
-                    <span class="stat-unit">ETH</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-label">Your Tokens</div>
-                <div class="stat-value" id="userTokens">0.00</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-label">Active Listings</div>
-                <div class="stat-value" id="activeProperties">0</div>
+        <div class="stat-item">
+            <div class="stat-label">Your ETH Balance</div>
+            <div class="stat-value">
+                <span id="ethBalance">0.00</span>
+                <span class="stat-unit">ETH</span>
             </div>
         </div>
-    </section>
-
-    <div class="container">
-        <div class="tabs">
-            <button class="tab active" data-tab="marketplace">Marketplace</button>
-            <button class="tab" data-tab="list-property">List Property</button>
-            <button class="tab" data-tab="portfolio">My Portfolio</button>
+        <div class="stat-item">
+            <div class="stat-label">Your Tokens (RER)</div>
+            <div class="stat-value" id="userTokens">0.00</div>
         </div>
-
-        
-        <div class="tab-content active" id="marketplace">
-            <div class="section-header">
-                <h2 class="section-title">Available Properties</h2>
-                <div class="accent-line"></div>
-                <p class="section-subtitle">Discover tokenized real estate opportunities from around the world</p>
-            </div>
-            <div class="properties-grid" id="propertiesGrid">
-                <div class="loading">
-                    <div class="loading-spinner"></div>
-                    Loading properties...
-                </div>
-            </div>
+        <div class="stat-item">
+            <div class="stat-label">Active Listings</div>
+            <div class="stat-value" id="activeProperties">0</div>
         </div>
+    </div>
+</section>
 
-        
-        <div class="tab-content" id="list-property">
-            <div class="section-header">
-                <h2 class="section-title">Tokenize Your Property</h2>
-                <div class="accent-line"></div>
-                <p class="section-subtitle">List your real estate asset and unlock fractional ownership opportunities</p>
-            </div>
-            <div class="form-container">
-                <form class="form-grid" id="propertyForm">
-                    <div class="form-group">
-                        <label for="propertyName">Property Name</label>
-                        <input type="text" id="propertyName" placeholder="e.g., Luxury Penthouse Downtown">
-                    </div>
+<div class="container">
+    <div class="tabs">
+        <button class="tab active" data-tab="marketplace">Marketplace</button>
+        <button class="tab" data-tab="list-property">List Property</button>
+        <button class="tab" data-tab="portfolio">My Portfolio</button>
+    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="propertyLocation">Location</label>
-                            <input type="text" id="propertyLocation" placeholder="e.g., New York, NY">
-                        </div>
-                        <div class="form-group">
-                            <label for="propertyType">Property Type</label>
-                            <select id="propertyType">
-                                <option value="Residential">Residential</option>
-                                <option value="Commercial">Commercial</option>
-                                <option value="Industrial">Industrial</option>
-                                <option value="Land">Land</option>
-                                <option value="Mixed-Use">Mixed-Use</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="propertyDescription">Description</label>
-                        <textarea id="propertyDescription" placeholder="Describe the property, its features, and investment potential..."></textarea>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="propertyValue">Total Value (ETH)</label>
-                            <input type="number" id="propertyValue" step="0.01" placeholder="10.00">
-                        </div>
-                        <div class="form-group">
-                            <label for="tokenSupply">Token Supply</label>
-                            <input type="number" id="tokenSupply" placeholder="1000">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="minInvestment">Minimum Investment (ETH)</label>
-                            <input type="number" id="minInvestment" step="0.01" placeholder="0.01">
-                        </div>
-                        <div class="form-group">
-                            <label for="fundingDuration">Funding Duration (Days)</label>
-                            <input type="number" id="fundingDuration" min="1" placeholder="30">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Tokenize Property</button>
-                </form>
-            </div>
+    <div class="tab-content active" id="marketplace">
+        <div class="section-header">
+            <h2 class="section-title">Available Properties</h2>
+            <div class="accent-line"></div>
+            <p class="section-subtitle">Discover tokenized real estate opportunities from around the world</p>
         </div>
-
-        
-        <div class="tab-content" id="portfolio">
-            <div class="section-header">
-                <h2 class="section-title">Your Portfolio</h2>
-                <div class="accent-line"></div>
-                <p class="section-subtitle">Properties you own or have invested in</p>
-            </div>
-            <div class="properties-grid" id="portfolioGrid">
-                <div class="loading">
-                    <div class="loading-spinner"></div>
-                    Loading your portfolio...
-                </div>
+        <div class="properties-grid" id="propertiesGrid">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                Loading properties...
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
-    <script src="app.js"></script>
+
+    <div class="tab-content" id="list-property">
+        <div class="section-header">
+            <h2 class="section-title">Tokenize Your Property</h2>
+            <div class="accent-line"></div>
+            <p class="section-subtitle">List your real estate asset and unlock fractional ownership opportunities</p>
+        </div>
+        <div class="form-container">
+            <form class="form-grid" id="propertyForm">
+                <div class="form-group">
+                    <label for="propertyName">Property Name</label>
+                    <input type="text" id="propertyName" placeholder="e.g., Luxury Penthouse Downtown">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="propertyLocation">Location</label>
+                        <input type="text" id="propertyLocation" placeholder="e.g., New York, NY">
+                    </div>
+                    <div class="form-group">
+                        <label for="propertyType">Property Type</label>
+                        <select id="propertyType">
+                            <option value="Residential">Residential</option>
+                            <option value="Commercial">Commercial</option>
+                            <option value="Industrial">Industrial</option>
+                            <option value="Land">Land</option>
+                            <option value="Mixed-Use">Mixed-Use</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="propertyDescription">Description</label>
+                    <textarea id="propertyDescription" placeholder="Describe the property, its features, and investment potential..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="propertyValue">Total Value (ETH)</label>
+                        <input type="number" id="propertyValue" step="0.01" placeholder="10.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="tokenSupply">Token Supply</label>
+                        <input type="number" id="tokenSupply" placeholder="1000">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="minInvestment">Minimum Investment (ETH)</label>
+                        <input type="number" id="minInvestment" step="0.01" placeholder="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="fundingDuration">Funding Duration (Days)</label>
+                        <input type="number" id="fundingDuration" min="1" placeholder="30">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Tokenize Property</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="tab-content" id="portfolio">
+        <div class="section-header">
+            <h2 class="section-title">Your Portfolio</h2>
+            <div class="accent-line"></div>
+            <p class="section-subtitle">Properties you own or have invested in</p>
+        </div>
+        <div class="properties-grid" id="portfolioGrid">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                Loading your portfolio...
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
