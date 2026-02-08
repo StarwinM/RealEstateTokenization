@@ -1,5 +1,5 @@
-const ESTATE_TOKEN_ADDRESS = '';
-const PROPERTY_TOKEN_ADDRESS = '';
+const ESTATE_TOKEN_ADDRESS = ' .';
+const PROPERTY_TOKEN_ADDRESS = ' .';
 
 const ESTATE_TOKEN_ABI = [
     {
