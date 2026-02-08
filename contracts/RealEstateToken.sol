@@ -10,6 +10,9 @@ contract RealEstateToken is ERC20 {
         crowdfundingContract = msg.sender;
     }
 
+    
+     // Minting function that can only be called by the main contract.
+    
     function mint(address to, uint256 amount) external {
         require(msg.sender == crowdfundingContract, "Only Crowdfunding can mint");
         _mint(to, amount);
